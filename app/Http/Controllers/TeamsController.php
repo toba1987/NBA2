@@ -7,6 +7,10 @@ use App\Team;
 
 class TeamsController extends Controller
 {
+	public function __construct() 
+	{
+		$this->middleware('auth'); 
+	}//end
 
 	public function index()
 	{
@@ -23,6 +27,8 @@ class TeamsController extends Controller
 		return view('teams.show',['team' => $team]);
 
 	}//end
+
+
 
 
 }//CLASS
