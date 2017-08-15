@@ -13,4 +13,18 @@ class Team extends Model
         return $this->hasMany(Player::class);
     }//end
 
+    public function comments()
+    {
+
+        return $this->hasMany(Comment::class);
+    }//end
+
+    public function addComment($content)
+    {
+        $this->comments()->create(['content' => $content,'user_id' => auth()->user()->id]);
+    }// end
+
+
+
+
 }//CLASS
