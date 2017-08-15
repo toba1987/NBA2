@@ -16,3 +16,7 @@ Route::get('/team/{id}','TeamsController@show');
 
 Route::get('/players/{id}','PlayersController@show');
 
+Route::post('/register','RegisterController@store');
+Route::get('/register','RegisterController@create');
+
+Route::get('/logout','LoginControllers@destroy');
