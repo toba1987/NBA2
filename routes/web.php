@@ -27,3 +27,5 @@ Route::post('/comment/{id}','CommentsController@store');
 
 Route::get('/news','NewsController@index');
 Route::get('/news/{news_id}','NewsController@show');
+
+Route::get('/news/team/{team}','TeamsController@getTeamNews');

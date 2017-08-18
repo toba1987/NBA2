@@ -28,6 +28,13 @@ class TeamsController extends Controller
 
 	}//end
 
+	public function getTeamNews(Team $teams)
+	{
+		$news = $team->news()->paginate(3);
+
+		return view('news.index',compact('news'));
+	}
+
 
 
 

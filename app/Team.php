@@ -24,6 +24,18 @@ class Team extends Model
         $this->comments()->create(['content' => $content,'user_id' => auth()->user()->id]);
     }// end
 
+    public function news()
+    {
+        return $this->belongsToMany(News::class, 'news_teams');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'name';  
+    }
+
+
+
 
 
 

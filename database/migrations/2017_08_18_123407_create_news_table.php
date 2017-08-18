@@ -18,7 +18,7 @@ class CreateNewsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->unsignedInteger('user_id');  
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascada');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
