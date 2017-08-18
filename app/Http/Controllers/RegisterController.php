@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
+use App\Mail\RegisterMail;
+
 
 class RegisterController extends Controller
 {
@@ -12,13 +14,13 @@ class RegisterController extends Controller
 	public function __construct()  
 	{
 		$this->middleware('guest');
-	}//end
+	}
 
 	public function create()
 	{
 		return view('register.create');
 
-	}//end
+	}
 
 	public function store()
 	{
@@ -38,8 +40,10 @@ class RegisterController extends Controller
 
     	auth()->login($user);
 
+    	\Mail::to($user)->send(new RegisterMail($user));
+
     	return redirect('/'); 
 
-	}//end
+	}
 
-}//CLASS
+}
