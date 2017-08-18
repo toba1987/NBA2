@@ -14,7 +14,7 @@
        <ul>
             @foreach ($singleNews->teams as $team)
                <li>
-                   <a href="/news/teams/{{ $team->name }}">
+                   <a href="/news/team/{{ $team->name }}">
                        {{ $team->name }}
                     </a>
                </li>

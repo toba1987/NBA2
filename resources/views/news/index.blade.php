@@ -1,6 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
+
+    @if($flash = session('news'))
+        <div class="alert alert-success" role="alert">
+            {{ $flash }}
+        </div>
+    @endif
+    
     @foreach($news as $singleNews)
 
         <div class="blog-post">

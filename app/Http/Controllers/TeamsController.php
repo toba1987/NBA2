@@ -20,15 +20,15 @@ class TeamsController extends Controller
 	}//end
 
 
-	public function show($id)
+	public function show($team_id)
 	{
-		$team = Team::find($id);
+		$team = Team::find($team_id);
 
 		return view('teams.show',['team' => $team]);
 
 	}//end
 
-	public function getTeamNews(Team $teams)
+	public function getTeamNews(Team $team)
 	{
 		$news = $team->news()->paginate(3);
 
