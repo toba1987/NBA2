@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Team;
 
+use App\Mail\CommentReceived;
+
 class CommentsController extends Controller
 {
     public function store($id)
@@ -18,6 +20,8 @@ class CommentsController extends Controller
 
         $team->addComment(request('content'));
 
+
+        \Mail::to($team)->send(new CommentReceived($team));
 
         return back();
     }
